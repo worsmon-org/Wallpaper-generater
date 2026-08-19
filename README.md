@@ -45,20 +45,6 @@ It is also part of my journey of learning how websites actually work — from HT
 
 ---
 
-## 🖥️ Preview
-
-<p align="center">
-  <img src="assets/screenshot-1.png" width="48%" alt="Wallpaper Generator Preview 1">
-  <img src="assets/screenshot-2.png" width="48%" alt="Wallpaper Generator Preview 2">
-</p>
-
-<p align="center">
-  <img src="assets/screenshot-3.png" width="48%" alt="Wallpaper Generator Preview 3">
-  <img src="assets/screenshot-4.png" width="48%" alt="Wallpaper Generator Preview 4">
-</p>
-
----
-
 ## 🧠 Why I Made This
 
 This repository is not just about wallpapers.
