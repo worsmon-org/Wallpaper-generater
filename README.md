@@ -154,9 +154,8 @@ CS Executive student • Developer • Learner
 I am using GitHub as my **digital playground** — a place where I can learn, experiment, build random ideas, and slowly turn those experiments into useful projects.
 
 <p align="center">
- <a href="https://worsmon-org.github.io/ehsaan-website/" target="_blank">
-  <img src="/ehsaan.png" width="100" alt="Ehsaan Ullah">
-</a>
+  <img src="/ehsaan.png" alt="Wallpaper Generator" width="100%">
+</p>
 
 <p align="center">
   <a href="mailto:worsmon@gmail.com">
