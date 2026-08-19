@@ -1,7 +1,7 @@
 # 🖼️ WALLPAPER GENERATOR
 
 <p align="center">
-  <img src="assets/banner.png" alt="Wallpaper Generator" width="100%">
+  <img src="/banner.png" alt="Wallpaper Generator" width="100%">
 </p>
 
 <p align="center">
