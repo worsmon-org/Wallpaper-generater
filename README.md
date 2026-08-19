@@ -154,7 +154,7 @@ CS Executive student • Developer • Learner
 I am using GitHub as my **digital playground** — a place where I can learn, experiment, build random ideas, and slowly turn those experiments into useful projects.
 
 <p align="center">
-  <img src="/ehsaan.png" alt="Wallpaper Generator" width="100%">
+  <img src="/ehsaan.png" alt="EHSAAN ULLAH" width="100%">
 </p>
 
 <p align="center">
