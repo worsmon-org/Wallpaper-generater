@@ -21,19 +21,19 @@ export const AdjustmentPanel: React.FC<AdjustmentPanelProps> = ({
   };
 
   return (
-    <div className="space-y-3 p-3.5 bg-zinc-50 dark:bg-zinc-900/50 rounded-xl border border-zinc-200 dark:border-zinc-800">
+    <div className="space-y-3 p-3.5 bg-[#1A1D23] rounded-xl border border-white/5">
       <div className="flex items-center justify-between">
-        <label className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 flex items-center gap-1.5">
-          <SlidersHorizontal className="w-3.5 h-3.5" />
-          <span>Visual Refinements & Texture</span>
+        <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold flex items-center gap-1.5">
+          <SlidersHorizontal className="w-3 h-3 text-cyan-400" />
+          <span>Texture & Seed Tuning</span>
         </label>
         <button
           type="button"
           onClick={onRollNewSeed}
           title="Regenerate random variation"
-          className="flex items-center gap-1 px-2 py-1 text-xs font-semibold text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-950/60 hover:bg-purple-200 dark:hover:bg-purple-900/60 rounded-md transition-colors"
+          className="flex items-center gap-1 px-2.5 py-1 text-[11px] font-bold text-cyan-300 bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 rounded-md transition-colors"
         >
-          <Dices className="w-3.5 h-3.5" />
+          <Dices className="w-3 h-3" />
           <span>Reroll Seed</span>
         </button>
       </div>
@@ -41,9 +41,9 @@ export const AdjustmentPanel: React.FC<AdjustmentPanelProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
         {/* Pattern Complexity */}
         <div className="space-y-1">
-          <div className="flex justify-between text-xs font-medium text-zinc-600 dark:text-zinc-400">
-            <span>Pattern Complexity</span>
-            <span>{filters.complexity}/10</span>
+          <div className="flex justify-between text-xs font-medium text-gray-400">
+            <span>Complexity</span>
+            <span className="font-mono text-cyan-400">{filters.complexity}/10</span>
           </div>
           <input
             type="range"
@@ -52,15 +52,15 @@ export const AdjustmentPanel: React.FC<AdjustmentPanelProps> = ({
             step="1"
             value={filters.complexity}
             onChange={(e) => updateFilter('complexity', Number(e.target.value))}
-            className="w-full h-1.5 bg-zinc-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+            className="w-full h-1.5 bg-[#0F1117] rounded-lg appearance-none cursor-pointer accent-cyan-400"
           />
         </div>
 
         {/* Film Grain Texture */}
         <div className="space-y-1">
-          <div className="flex justify-between text-xs font-medium text-zinc-600 dark:text-zinc-400">
-            <span>Film Grain Noise</span>
-            <span>{filters.grain}%</span>
+          <div className="flex justify-between text-xs font-medium text-gray-400">
+            <span>Film Grain</span>
+            <span className="font-mono text-cyan-400">{filters.grain}%</span>
           </div>
           <input
             type="range"
@@ -69,15 +69,15 @@ export const AdjustmentPanel: React.FC<AdjustmentPanelProps> = ({
             step="5"
             value={filters.grain}
             onChange={(e) => updateFilter('grain', Number(e.target.value))}
-            className="w-full h-1.5 bg-zinc-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+            className="w-full h-1.5 bg-[#0F1117] rounded-lg appearance-none cursor-pointer accent-cyan-400"
           />
         </div>
 
         {/* Cinematic Vignette */}
         <div className="space-y-1">
-          <div className="flex justify-between text-xs font-medium text-zinc-600 dark:text-zinc-400">
-            <span>Radial Vignette</span>
-            <span>{filters.vignette}%</span>
+          <div className="flex justify-between text-xs font-medium text-gray-400">
+            <span>Vignette Falloff</span>
+            <span className="font-mono text-cyan-400">{filters.vignette}%</span>
           </div>
           <input
             type="range"
@@ -86,14 +86,14 @@ export const AdjustmentPanel: React.FC<AdjustmentPanelProps> = ({
             step="5"
             value={filters.vignette}
             onChange={(e) => updateFilter('vignette', Number(e.target.value))}
-            className="w-full h-1.5 bg-zinc-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+            className="w-full h-1.5 bg-[#0F1117] rounded-lg appearance-none cursor-pointer accent-cyan-400"
           />
         </div>
 
         {/* Active Seed Tag */}
-        <div className="flex items-center justify-between p-2 rounded-lg bg-white dark:bg-zinc-800/80 border border-zinc-200 dark:border-zinc-700 text-xs">
-          <span className="text-zinc-500">Procedural Seed:</span>
-          <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400">#{filters.seed}</span>
+        <div className="flex items-center justify-between p-2 rounded-lg bg-[#0F1117] border border-white/5 text-xs">
+          <span className="text-gray-500 font-mono text-[11px]">Seed:</span>
+          <span className="font-mono font-bold text-cyan-400">#{filters.seed}</span>
         </div>
       </div>
     </div>

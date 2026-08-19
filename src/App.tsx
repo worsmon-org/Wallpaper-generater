@@ -285,7 +285,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-100 dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 flex flex-col font-sans transition-colors duration-200">
+    <div className="min-h-screen bg-[#0B0C10] text-[#E0E0E0] flex flex-col font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
       {/* Top Navigation Bar */}
       <Header
         config={config}
@@ -302,7 +302,7 @@ export default function App() {
       <main className="flex-1 max-w-7xl w-full mx-auto p-4 sm:p-6 lg:p-8 grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column: Interactive Control Studio (5 cols on lg) */}
         <div className="lg:col-span-6 xl:col-span-5 space-y-6">
-          <div className="bg-white dark:bg-zinc-900/90 rounded-2xl p-5 sm:p-6 border border-zinc-200 dark:border-zinc-800 shadow-sm space-y-6 backdrop-blur-sm">
+          <div className="bg-[#0F1117] rounded-2xl p-5 sm:p-6 border border-white/10 shadow-2xl space-y-6 backdrop-blur-sm">
             {/* 1. Device Selector (Mobile vs Desktop) */}
             <DeviceSelector
               deviceType={config.deviceType}
@@ -311,7 +311,7 @@ export default function App() {
               onSelectResolution={handleSelectResolution}
             />
 
-            <hr className="border-zinc-100 dark:border-zinc-800/80" />
+            <hr className="border-white/5" />
 
             {/* 2. Style Selector (Abstract, Landscape, Minimalist, Halloween, Cyberpunk, Natural, Sci-Fi, etc.) */}
             <StyleSelector
@@ -319,7 +319,7 @@ export default function App() {
               onSelectStyle={handleSelectStyle}
             />
 
-            <hr className="border-zinc-100 dark:border-zinc-800/80" />
+            <hr className="border-white/5" />
 
             {/* 3. Color Palettes (Presets + Customizer + AI Suggestion) */}
             <PaletteSelector
@@ -329,7 +329,7 @@ export default function App() {
               onUpdateCustomColors={handleUpdateCustomColors}
             />
 
-            <hr className="border-zinc-100 dark:border-zinc-800/80" />
+            <hr className="border-white/5" />
 
             {/* 4. Theme Mode (Dark & Light) & Lighting Mood */}
             <ThemeSelector
@@ -339,7 +339,7 @@ export default function App() {
               onSelectLightingMood={handleSelectLightingMood}
             />
 
-            <hr className="border-zinc-100 dark:border-zinc-800/80" />
+            <hr className="border-white/5" />
 
             {/* 5. Texture & Refinement Sliders */}
             <AdjustmentPanel
@@ -354,10 +354,10 @@ export default function App() {
                 id="btn-main-export-jpg"
                 type="button"
                 onClick={() => setIsExportOpen(true)}
-                className="w-full flex items-center justify-center gap-2.5 py-3 px-4 rounded-xl text-white font-bold text-sm sm:text-base bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:via-purple-500 hover:to-pink-500 shadow-lg shadow-indigo-500/25 active:scale-[0.98] transition-all"
+                className="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl text-black font-black text-sm sm:text-base bg-white hover:bg-gray-200 shadow-xl shadow-cyan-500/10 active:scale-[0.98] transition-all tracking-wide"
               >
-                <Download className="w-5 h-5" />
-                <span>Export as JPG ({config.resolution.width} × {config.resolution.height})</span>
+                <Download className="w-5 h-5 stroke-[2.5]" />
+                <span>EXPORT AS JPG ({config.resolution.width} × {config.resolution.height})</span>
               </button>
             </div>
           </div>

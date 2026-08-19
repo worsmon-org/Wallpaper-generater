@@ -12,7 +12,6 @@ import {
   Wifi,
   Battery,
   Sparkles,
-  Layers,
 } from 'lucide-react';
 import { WallpaperConfig, PreviewMockupMode } from '../types';
 import { renderWallpaperToCanvas } from '../utils/wallpaperEngine';
@@ -101,20 +100,32 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
   return (
     <div
       ref={containerRef}
-      className="relative flex flex-col h-full bg-zinc-950 rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl"
+      className="relative flex flex-col h-full bg-[#090A0D] rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
     >
+      {/* Sleek Dot Grid Backdrop */}
+      <div
+        className="absolute inset-0 opacity-10 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+        }}
+      />
+
+      {/* Ambient Neon Cyan Backdrop Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500 rounded-full blur-[120px] opacity-15 pointer-events-none" />
+
       {/* Top Floating Control Bar */}
       <div className="absolute top-3 inset-x-3 z-20 flex items-center justify-between pointer-events-none">
         {/* Mockup Mode Selector */}
-        <div className="flex items-center gap-1 p-1 rounded-xl bg-zinc-900/90 backdrop-blur-md border border-zinc-700/80 shadow-lg pointer-events-auto">
+        <div className="flex items-center gap-1 p-1 rounded-xl bg-[#0F1117]/90 backdrop-blur-md border border-white/10 shadow-lg pointer-events-auto">
           <button
             type="button"
             onClick={() => onChangeMockupMode('none')}
             title="Raw Wallpaper view"
             className={`p-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
               mockupMode === 'none'
-                ? 'bg-indigo-600 text-white shadow-sm'
-                : 'text-zinc-400 hover:text-white'
+                ? 'bg-cyan-500 text-black font-bold shadow-md shadow-cyan-500/20'
+                : 'text-gray-400 hover:text-white'
             }`}
           >
             <Eye className="w-3.5 h-3.5" />
@@ -127,8 +138,8 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
             title="Phone Lockscreen Mockup"
             className={`p-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
               mockupMode === 'mobile-mockup'
-                ? 'bg-indigo-600 text-white shadow-sm'
-                : 'text-zinc-400 hover:text-white'
+                ? 'bg-cyan-500 text-black font-bold shadow-md shadow-cyan-500/20'
+                : 'text-gray-400 hover:text-white'
             }`}
           >
             <Smartphone className="w-3.5 h-3.5" />
@@ -141,8 +152,8 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
             title="Desktop Screen Mockup"
             className={`p-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all ${
               mockupMode === 'desktop-mockup'
-                ? 'bg-indigo-600 text-white shadow-sm'
-                : 'text-zinc-400 hover:text-white'
+                ? 'bg-cyan-500 text-black font-bold shadow-md shadow-cyan-500/20'
+                : 'text-gray-400 hover:text-white'
             }`}
           >
             <Monitor className="w-3.5 h-3.5" />
@@ -157,16 +168,16 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
             type="button"
             onClick={onRollNewSeed}
             title="Generate new procedural variation"
-            className="p-2 rounded-xl bg-zinc-900/90 backdrop-blur-md border border-zinc-700/80 text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors shadow-lg"
+            className="p-2 rounded-xl bg-[#0F1117]/90 backdrop-blur-md border border-white/10 text-gray-300 hover:text-white hover:bg-[#1A1D23] transition-colors shadow-lg"
           >
-            <Dices className="w-4 h-4 text-purple-400" />
+            <Dices className="w-4 h-4 text-cyan-400" />
           </button>
 
           <button
             type="button"
             onClick={toggleFullscreen}
             title="Toggle Fullscreen"
-            className="p-2 rounded-xl bg-zinc-900/90 backdrop-blur-md border border-zinc-700/80 text-zinc-300 hover:text-white hover:bg-zinc-800 transition-colors shadow-lg"
+            className="p-2 rounded-xl bg-[#0F1117]/90 backdrop-blur-md border border-white/10 text-gray-300 hover:text-white hover:bg-[#1A1D23] transition-colors shadow-lg"
           >
             {isFullscreen ? <Minimize2 className="w-4 h-4" /> : <Maximize2 className="w-4 h-4" />}
           </button>
@@ -176,23 +187,20 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
             type="button"
             onClick={onQuickExportJpg}
             title="Export as JPG"
-            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-bold shadow-lg shadow-indigo-500/20 active:scale-95 transition-all"
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white text-black text-xs font-black tracking-wide shadow-lg hover:bg-gray-200 active:scale-95 transition-all"
           >
-            <Download className="w-4 h-4" />
-            <span className="hidden sm:inline">Export JPG</span>
+            <Download className="w-3.5 h-3.5 stroke-[2.5]" />
+            <span className="hidden sm:inline">EXPORT JPG</span>
           </button>
         </div>
       </div>
 
       {/* Main Viewport Container */}
-      <div className="flex-1 flex items-center justify-center p-4 sm:p-8 overflow-hidden relative">
-        {/* Subtle grid backdrop */}
-        <div className="absolute inset-0 bg-[radial-gradient(#27272a_1px,transparent_1px)] [background-size:20px_20px] opacity-40" />
-
+      <div className="flex-1 flex flex-col items-center justify-center p-4 sm:p-8 overflow-hidden relative">
         {/* Loading Spinner */}
         {isRendering && (
-          <div className="absolute z-30 flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-white text-xs font-medium animate-pulse">
-            <Sparkles className="w-3.5 h-3.5 text-indigo-400 animate-spin" />
+          <div className="absolute z-30 flex items-center gap-2 px-4 py-2 rounded-full bg-[#0F1117]/90 backdrop-blur-md border border-cyan-500/40 text-white text-xs font-medium shadow-2xl animate-pulse">
+            <Sparkles className="w-3.5 h-3.5 text-cyan-400 animate-spin" />
             <span>Rendering Studio Canvas...</span>
           </div>
         )}
@@ -200,9 +208,9 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
         {/* MOCKUP CONTAINER */}
         {mockupMode === 'mobile-mockup' ? (
           /* Realistic Phone Mockup Bezel */
-          <div className="relative w-[280px] sm:w-[320px] aspect-[9/19.5] rounded-[44px] p-3 bg-zinc-900 ring-1 ring-white/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] flex flex-col overflow-hidden transition-all">
+          <div className="relative w-[280px] sm:w-[320px] aspect-[9/19.5] rounded-[44px] p-3 bg-[#0F1117] ring-1 ring-white/20 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] flex flex-col overflow-hidden transition-all">
             {/* Phone Outer Edge Highlight */}
-            <div className="absolute inset-0 rounded-[44px] border-[3px] border-zinc-700/60 pointer-events-none z-20" />
+            <div className="absolute inset-0 rounded-[44px] border-[3px] border-white/10 pointer-events-none z-20" />
 
             {/* Screen Inner Frame */}
             <div className="relative flex-1 rounded-[34px] overflow-hidden bg-black flex flex-col">
@@ -216,7 +224,7 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
               <div className="relative z-10 pt-3 flex justify-center">
                 <div className="w-24 h-6 rounded-full bg-black flex items-center justify-between px-2.5">
                   <div className="w-2.5 h-2.5 rounded-full bg-zinc-900 border border-zinc-800" />
-                  <div className="w-2 h-2 rounded-full bg-indigo-950/60" />
+                  <div className="w-2 h-2 rounded-full bg-cyan-950/60" />
                 </div>
               </div>
 
@@ -253,7 +261,7 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
           </div>
         ) : mockupMode === 'desktop-mockup' ? (
           /* Realistic Desktop Monitor Mockup */
-          <div className="relative w-full max-w-[620px] aspect-[16/10] rounded-2xl p-2.5 bg-zinc-800 ring-1 ring-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] flex flex-col overflow-hidden transition-all">
+          <div className="relative w-full max-w-[620px] aspect-[16/10] rounded-2xl p-2.5 bg-[#0F1117] ring-1 ring-white/10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] flex flex-col overflow-hidden transition-all">
             {/* Screen Inner Frame */}
             <div className="relative flex-1 rounded-xl overflow-hidden bg-black flex flex-col">
               {/* Wallpaper Canvas */}
@@ -279,8 +287,8 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
 
               {/* Bottom Dock with Mock App Icons */}
               <div className="relative z-10 mt-auto pb-2 flex justify-center">
-                <div className="h-10 px-3 rounded-2xl bg-white/20 dark:bg-black/40 backdrop-blur-xl border border-white/30 flex items-center gap-2 shadow-2xl">
-                  {['bg-blue-500', 'bg-rose-500', 'bg-emerald-500', 'bg-purple-500', 'bg-amber-500', 'bg-indigo-500'].map(
+                <div className="h-10 px-3 rounded-2xl bg-white/10 dark:bg-black/40 backdrop-blur-xl border border-white/20 flex items-center gap-2 shadow-2xl">
+                  {['bg-cyan-500', 'bg-purple-500', 'bg-rose-500', 'bg-emerald-500', 'bg-amber-500', 'bg-indigo-500'].map(
                     (color, i) => (
                       <div
                         key={i}
@@ -300,29 +308,59 @@ export const PreviewCanvas: React.FC<PreviewCanvasProps> = ({
         ) : (
           /* Raw Wallpaper Canvas Presentation */
           <div
-            className={`relative max-w-full max-h-[82vh] rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/10 ${
-              isMobileRatio ? 'aspect-[9/16] w-[300px] sm:w-[360px]' : 'aspect-[16/9] w-full max-w-[680px]'
+            className={`relative max-w-full max-h-[70vh] rounded-2xl overflow-hidden shadow-2xl border border-white/10 group ${
+              isMobileRatio ? 'aspect-[9/16] w-[280px] sm:w-[340px]' : 'aspect-video w-full max-w-[620px]'
             }`}
           >
             <canvas
               ref={canvasRef}
               className="w-full h-full object-cover block"
             />
+            {/* Sleek Overlay Tag */}
+            <div className="absolute inset-x-4 bottom-4 border border-white/10 bg-black/40 backdrop-blur-md rounded-lg p-3 flex items-center justify-between">
+              <div className="space-y-0.5">
+                <div className="h-1 w-10 bg-cyan-500 rounded-full" />
+                <p className="text-[10px] font-mono tracking-tight text-white/70 uppercase">
+                  Rendering: Style-{config.style.replace('-', '_')}
+                </p>
+              </div>
+              <span className="text-[10px] font-mono text-cyan-400 font-bold uppercase">
+                {config.theme} MODE
+              </span>
+            </div>
           </div>
         )}
+
+        {/* Sleek Metrics Row (from Sleek Interface theme) */}
+        <div className="mt-6 flex items-center gap-8 sm:gap-12 select-none">
+          <div className="text-center">
+            <p className="text-xl sm:text-2xl font-black text-white">
+              {config.resolution.width >= 3840 ? '4K' : config.resolution.width >= 2560 ? '2K' : 'FHD'}
+            </p>
+            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Resolution</p>
+          </div>
+          <div className="text-center">
+            <p className="text-xl sm:text-2xl font-black text-white">{config.resolution.aspectRatio}</p>
+            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Ratio</p>
+          </div>
+          <div className="text-center">
+            <p className="text-xl sm:text-2xl font-black text-cyan-400 font-mono">
+              {config.filters.seed}
+            </p>
+            <p className="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Seed ID</p>
+          </div>
+        </div>
       </div>
 
       {/* Bottom Info Status Bar */}
-      <div className="px-4 py-2 bg-zinc-900/90 border-t border-zinc-800 text-xs text-zinc-400 flex items-center justify-between">
+      <div className="px-4 py-2.5 bg-[#0F1117] border-t border-white/10 text-xs text-gray-400 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-          <span className="font-semibold text-zinc-300 uppercase">{config.style}</span>
-          <span>•</span>
-          <span>{config.theme.toUpperCase()} THEME</span>
-          <span>•</span>
-          <span>{config.palette.name}</span>
+          <span className="inline-block w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+          <span className="font-bold text-white uppercase">{config.style}</span>
+          <span className="text-gray-600">•</span>
+          <span className="font-mono">{config.palette.name}</span>
         </div>
-        <div className="font-mono text-zinc-400 font-semibold">
+        <div className="font-mono text-cyan-400 font-bold">
           {config.resolution.width} × {config.resolution.height} PX
         </div>
       </div>

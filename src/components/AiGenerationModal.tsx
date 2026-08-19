@@ -86,26 +86,26 @@ export const AiGenerationModal: React.FC<AiGenerationModalProps> = ({
   ];
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-xl rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-2xl p-6 space-y-5">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-xl rounded-2xl bg-[#0F1117] border border-white/10 shadow-2xl p-6 space-y-5 text-[#E0E0E0]">
         {/* Header */}
-        <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-4">
+        <div className="flex items-center justify-between border-b border-white/10 pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-500 to-indigo-600 flex items-center justify-center text-white shadow-md">
-              <Wand2 className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-xl bg-cyan-500 text-black flex items-center justify-center font-bold shadow-lg shadow-cyan-500/20">
+              <Wand2 className="w-5 h-5 stroke-[2.5]" />
             </div>
             <div>
-              <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100">
+              <h3 className="text-base sm:text-lg font-bold text-white tracking-wide">
                 Gemini AI Wallpaper Studio
               </h3>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400">
+              <p className="text-xs text-gray-400 font-mono">
                 Generate high-definition AI wallpapers tailored to your style & device
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+            className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-[#1A1D23] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -114,17 +114,17 @@ export const AiGenerationModal: React.FC<AiGenerationModalProps> = ({
         {/* Prompt Input */}
         <div className="space-y-2">
           <div className="flex items-center justify-between">
-            <label className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+            <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold block">
               Wallpaper Prompt / Idea
             </label>
             <button
               type="button"
               onClick={handleEnhancePrompt}
               disabled={isEnhancing}
-              className="flex items-center gap-1.5 text-xs font-semibold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 disabled:opacity-50"
+              className="flex items-center gap-1.5 text-xs font-bold text-cyan-400 hover:text-cyan-300 disabled:opacity-50"
             >
               <Sparkles className={`w-3.5 h-3.5 ${isEnhancing ? 'animate-spin' : ''}`} />
-              <span>{isEnhancing ? 'Enhancing...' : 'Magic Enhance with Gemini 3.7'}</span>
+              <span>{isEnhancing ? 'Synthesizing...' : 'Magic Prompt Enhance'}</span>
             </button>
           </div>
 
@@ -132,21 +132,21 @@ export const AiGenerationModal: React.FC<AiGenerationModalProps> = ({
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             rows={3}
-            placeholder={`Describe your dream wallpaper (e.g. "A moody ${config.style} with glowing elements and deep shadows")...`}
-            className="w-full p-3 rounded-xl border border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-800/60 text-zinc-900 dark:text-zinc-100 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-purple-500/50 resize-none"
+            placeholder={`Describe your dream wallpaper (e.g. "A moody ${config.style} with glowing neon elements and deep shadows")...`}
+            className="w-full p-3 rounded-xl border border-white/10 bg-[#1A1D23] text-white text-xs sm:text-sm focus:outline-none focus:border-cyan-500/50 resize-none font-sans"
           />
         </div>
 
         {/* Quick Inspiration Prompts */}
         <div className="space-y-1.5">
-          <span className="text-[11px] font-semibold text-zinc-400">Quick Inspiration:</span>
+          <span className="text-[10px] uppercase tracking-widest text-gray-500 font-bold">Quick Inspiration:</span>
           <div className="flex flex-wrap gap-1.5 max-h-24 overflow-y-auto">
             {promptSuggestions.map((sug, i) => (
               <button
                 key={i}
                 type="button"
                 onClick={() => setPrompt(sug)}
-                className="text-[11px] px-2.5 py-1 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 hover:bg-purple-50 dark:hover:bg-purple-950/40 hover:text-purple-600 dark:hover:text-purple-300 text-left transition-colors border border-zinc-200/60 dark:border-zinc-700/60 truncate max-w-full"
+                className="text-[11px] px-2.5 py-1 rounded-md bg-[#1A1D23] text-gray-300 hover:bg-[#252A33] hover:text-cyan-300 text-left transition-colors border border-white/5 truncate max-w-full"
               >
                 + {sug}
               </button>
@@ -156,23 +156,23 @@ export const AiGenerationModal: React.FC<AiGenerationModalProps> = ({
 
         {/* Error Notice */}
         {errorMsg && (
-          <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/50 border border-amber-300 dark:border-amber-700 flex items-start gap-2.5 text-amber-800 dark:text-amber-300 text-xs animate-in fade-in">
-            <AlertCircle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+          <div className="p-3 rounded-lg bg-amber-950/40 border border-amber-500/40 flex items-start gap-2.5 text-amber-300 text-xs">
+            <AlertCircle className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
             <span>{errorMsg}</span>
           </div>
         )}
 
         {/* Modal Actions */}
         <div className="flex items-center justify-between pt-2">
-          <div className="text-xs text-zinc-500">
-            Target: <span className="font-semibold text-zinc-700 dark:text-zinc-300">{config.deviceType.toUpperCase()} ({config.resolution.aspectRatio})</span>
+          <div className="text-xs text-gray-400 font-mono">
+            Target: <span className="font-bold text-cyan-400">{config.deviceType.toUpperCase()} ({config.resolution.aspectRatio})</span>
           </div>
 
           <div className="flex items-center gap-2">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 rounded-xl border border-zinc-300 dark:border-zinc-700 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+              className="px-4 py-2 rounded-lg border border-white/10 text-xs font-bold text-gray-300 hover:bg-[#1A1D23] transition-colors"
             >
               Cancel
             </button>
@@ -182,17 +182,17 @@ export const AiGenerationModal: React.FC<AiGenerationModalProps> = ({
               type="button"
               onClick={handleGenerateAi}
               disabled={isGenerating}
-              className="flex items-center gap-2 px-5 py-2 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white text-xs sm:text-sm font-bold shadow-lg shadow-purple-500/25 active:scale-95 transition-all disabled:opacity-50"
+              className="flex items-center gap-2 px-5 py-2 rounded-lg bg-white hover:bg-gray-200 text-black text-xs font-black tracking-wide shadow-lg active:scale-95 transition-all disabled:opacity-50"
             >
               {isGenerating ? (
                 <>
-                  <Sparkles className="w-4 h-4 animate-spin" />
+                  <Sparkles className="w-4 h-4 text-cyan-500 animate-spin" />
                   <span>Synthesizing AI Artwork...</span>
                 </>
               ) : (
                 <>
                   <Sparkles className="w-4 h-4" />
-                  <span>Generate with Gemini</span>
+                  <span>GENERATE ARTWORK</span>
                 </>
               )}
             </button>

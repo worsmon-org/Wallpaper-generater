@@ -39,32 +39,32 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = ({
   };
 
   return (
-    <div className="space-y-4">
-      {/* Dark & Light Theme Switch (Requirement 3) */}
+    <div className="space-y-3">
+      {/* Dark & Light Theme Switch */}
       <div className="space-y-2">
         <div className="flex items-center justify-between">
-          <label className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
-            4. Theme Mode (Dark & Light)
+          <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold block">
+            Theme & Illumination
           </label>
-          <span className="text-xs font-semibold uppercase text-indigo-600 dark:text-indigo-400">
-            {theme}
+          <span className="text-[11px] font-mono font-bold uppercase text-cyan-400">
+            {theme} MODE
           </span>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 p-1 bg-zinc-100 dark:bg-zinc-900 rounded-xl border border-zinc-200 dark:border-zinc-800">
+        <div className="grid grid-cols-2 gap-2 p-1 bg-[#1A1D23] rounded-xl border border-white/5">
           {/* Dark Mode */}
           <button
             id="btn-theme-dark"
             type="button"
             onClick={() => onSelectTheme('dark')}
-            className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
+            className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
               theme === 'dark'
-                ? 'bg-zinc-900 text-white shadow-sm ring-1 ring-zinc-700'
-                : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
+                ? 'bg-cyan-500 text-black shadow-md shadow-cyan-500/20'
+                : 'text-gray-400 hover:text-white'
             }`}
           >
-            <Moon className="w-4 h-4 text-indigo-400" />
-            <span>Dark Theme</span>
+            <Moon className="w-3.5 h-3.5" />
+            <span>DARK THEME</span>
           </button>
 
           {/* Light Mode */}
@@ -72,25 +72,20 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = ({
             id="btn-theme-light"
             type="button"
             onClick={() => onSelectTheme('light')}
-            className={`flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
+            className={`flex items-center justify-center gap-2 py-2 px-3 rounded-lg text-xs font-bold transition-all ${
               theme === 'light'
-                ? 'bg-white text-zinc-900 shadow-sm border border-zinc-200'
-                : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200'
+                ? 'bg-white text-black shadow-md'
+                : 'text-gray-400 hover:text-white'
             }`}
           >
-            <Sun className="w-4 h-4 text-amber-500" />
-            <span>Light Theme</span>
+            <Sun className="w-3.5 h-3.5 text-amber-500" />
+            <span>LIGHT THEME</span>
           </button>
         </div>
       </div>
 
       {/* Lighting Mood Options */}
       <div className="space-y-2">
-        <label className="text-xs font-semibold text-zinc-600 dark:text-zinc-400 flex items-center justify-between">
-          <span>Lighting & Atmosphere</span>
-          <span className="text-[11px] text-zinc-400 capitalize">{lightingMood.replace('-', ' ')}</span>
-        </label>
-
         <div className="grid grid-cols-2 gap-2">
           {LIGHTING_MOODS.map((mood) => {
             const isSelected = lightingMood === mood.id;
@@ -102,17 +97,17 @@ export const ThemeSelector: React.FC<ThemeSelectorProps> = ({
                 onClick={() => onSelectLightingMood(mood.id)}
                 className={`flex items-center gap-2 p-2 rounded-lg text-left transition-all border ${
                   isSelected
-                    ? 'border-indigo-500 bg-indigo-50/50 dark:bg-indigo-950/40 text-indigo-950 dark:text-indigo-200 ring-1 ring-indigo-500/30'
-                    : 'border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 hover:border-zinc-300 dark:hover:border-zinc-700'
+                    ? 'border-cyan-500 bg-cyan-500/10 text-cyan-300 ring-1 ring-cyan-500/30'
+                    : 'border-white/5 bg-[#1A1D23] hover:bg-[#252A33] text-gray-300'
                 }`}
               >
-                <div className={`p-1.5 rounded-md ${isSelected ? 'bg-indigo-600 text-white' : 'bg-zinc-100 dark:bg-zinc-800 text-zinc-500'}`}>
+                <div className={`p-1 rounded-md ${isSelected ? 'bg-cyan-500 text-black' : 'bg-[#0F1117] text-gray-400'}`}>
                   {getIcon(mood.iconName)}
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="text-xs font-semibold truncate">{mood.label}</p>
                 </div>
-                {isSelected && <Check className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 shrink-0" />}
+                {isSelected && <Check className="w-3 h-3 text-cyan-400 shrink-0" />}
               </button>
             );
           })}

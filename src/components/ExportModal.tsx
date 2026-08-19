@@ -59,34 +59,34 @@ export const ExportModal: React.FC<ExportModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-in fade-in duration-200">
-      <div className="relative w-full max-w-lg rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-2xl p-6 space-y-6">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-lg rounded-2xl bg-[#0F1117] border border-white/10 shadow-2xl p-6 space-y-5 text-[#E0E0E0]">
         {/* Modal Header */}
-        <div className="flex items-center justify-between border-b border-zinc-100 dark:border-zinc-800 pb-4">
+        <div className="flex items-center justify-between border-b border-white/10 pb-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-md">
-              <Download className="w-5 h-5" />
+            <div className="w-10 h-10 rounded-xl bg-cyan-500 text-black flex items-center justify-center font-bold shadow-lg shadow-cyan-500/20">
+              <Download className="w-5 h-5 stroke-[2.5]" />
             </div>
             <div>
-              <h3 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100">
+              <h3 className="text-base sm:text-lg font-bold text-white tracking-wide">
                 Export Wallpaper
               </h3>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                EHSAAN ULLAH Generator • High Resolution Export
+              <p className="text-xs text-gray-400 font-mono">
+                EHSAAN ULLAH • High Resolution Rendering Engine
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800"
+            className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-[#1A1D23] transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* 1. Format Selection (JPG is highlighted as required by user) */}
+        {/* 1. Format Selection */}
         <div className="space-y-2">
-          <label className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">
+          <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold block">
             Export Format
           </label>
           <div className="grid grid-cols-3 gap-2">
@@ -95,13 +95,13 @@ export const ExportModal: React.FC<ExportModalProps> = ({
               onClick={() => setFormat('jpg')}
               className={`py-3 px-3 rounded-xl border text-center font-bold text-xs sm:text-sm transition-all flex flex-col items-center gap-1 ${
                 format === 'jpg'
-                  ? 'border-indigo-500 bg-indigo-50/70 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 ring-2 ring-indigo-500/30'
-                  : 'border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800/50'
+                  ? 'border-cyan-500 bg-cyan-500/10 text-cyan-300 ring-1 ring-cyan-500/30'
+                  : 'border-white/5 bg-[#1A1D23] text-gray-300 hover:bg-[#252A33]'
               }`}
             >
-              <span className="text-sm sm:text-base font-extrabold">JPG (Recommended)</span>
-              <span className="text-[10px] font-normal text-zinc-500 dark:text-zinc-400">
-                Optimal Wallpaper Size
+              <span className="text-sm font-bold">JPG (Target)</span>
+              <span className="text-[10px] font-normal text-gray-400">
+                Optimized Size
               </span>
             </button>
 
@@ -110,12 +110,12 @@ export const ExportModal: React.FC<ExportModalProps> = ({
               onClick={() => setFormat('png')}
               className={`py-3 px-3 rounded-xl border text-center font-bold text-xs sm:text-sm transition-all flex flex-col items-center gap-1 ${
                 format === 'png'
-                  ? 'border-indigo-500 bg-indigo-50/70 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 ring-2 ring-indigo-500/30'
-                  : 'border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800/50'
+                  ? 'border-cyan-500 bg-cyan-500/10 text-cyan-300 ring-1 ring-cyan-500/30'
+                  : 'border-white/5 bg-[#1A1D23] text-gray-300 hover:bg-[#252A33]'
               }`}
             >
-              <span className="text-sm sm:text-base font-extrabold">PNG</span>
-              <span className="text-[10px] font-normal text-zinc-500 dark:text-zinc-400">Lossless Raw</span>
+              <span className="text-sm font-bold">PNG</span>
+              <span className="text-[10px] font-normal text-gray-400">Lossless Raw</span>
             </button>
 
             <button
@@ -123,21 +123,21 @@ export const ExportModal: React.FC<ExportModalProps> = ({
               onClick={() => setFormat('webp')}
               className={`py-3 px-3 rounded-xl border text-center font-bold text-xs sm:text-sm transition-all flex flex-col items-center gap-1 ${
                 format === 'webp'
-                  ? 'border-indigo-500 bg-indigo-50/70 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 ring-2 ring-indigo-500/30'
-                  : 'border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800/50'
+                  ? 'border-cyan-500 bg-cyan-500/10 text-cyan-300 ring-1 ring-cyan-500/30'
+                  : 'border-white/5 bg-[#1A1D23] text-gray-300 hover:bg-[#252A33]'
               }`}
             >
-              <span className="text-sm sm:text-base font-extrabold">WebP</span>
-              <span className="text-[10px] font-normal text-zinc-500 dark:text-zinc-400">Modern Compact</span>
+              <span className="text-sm font-bold">WebP</span>
+              <span className="text-[10px] font-normal text-gray-400">Next-Gen Compact</span>
             </button>
           </div>
         </div>
 
         {/* 2. Output Resolution Options */}
         <div className="space-y-2">
-          <label className="text-xs font-bold uppercase tracking-wider text-zinc-500 dark:text-zinc-400 flex items-center justify-between">
-            <span>Export Resolution</span>
-            <span className="text-indigo-600 dark:text-indigo-400 font-mono">
+          <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold flex items-center justify-between">
+            <span>Target Resolution</span>
+            <span className="text-cyan-400 font-mono">
               {targetDim.width} × {targetDim.height} PX
             </span>
           </label>
@@ -155,26 +155,26 @@ export const ExportModal: React.FC<ExportModalProps> = ({
                   key={res.id}
                   type="button"
                   onClick={() => setExportResMode(res.id as any)}
-                  className={`p-2.5 rounded-xl border text-left transition-all ${
+                  className={`p-2.5 rounded-lg border text-left transition-all ${
                     isSelected
-                      ? 'border-indigo-500 bg-indigo-50/50 dark:bg-indigo-950/40 text-indigo-900 dark:text-indigo-200'
-                      : 'border-zinc-200 dark:border-zinc-800 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800/40'
+                      ? 'border-cyan-500 bg-cyan-500/10 text-cyan-300'
+                      : 'border-white/5 bg-[#1A1D23] text-gray-300 hover:bg-[#252A33]'
                   }`}
                 >
                   <p className="text-xs font-bold">{res.label}</p>
-                  <p className="text-[10px] text-zinc-500 dark:text-zinc-400">{res.desc}</p>
+                  <p className="text-[10px] font-mono text-gray-400">{res.desc}</p>
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* 3. JPG Quality Slider (when JPG is selected) */}
+        {/* 3. JPG Quality Slider */}
         {format === 'jpg' && (
-          <div className="space-y-1.5 p-3 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700/60">
-            <div className="flex justify-between text-xs font-semibold text-zinc-700 dark:text-zinc-300">
-              <span>JPEG Compression Quality</span>
-              <span>{Math.round(quality * 100)}% (Ultra Crisp)</span>
+          <div className="space-y-1.5 p-3 rounded-lg bg-[#1A1D23] border border-white/5">
+            <div className="flex justify-between text-xs font-semibold text-gray-300">
+              <span>JPEG Quality Level</span>
+              <span className="font-mono text-cyan-400">{Math.round(quality * 100)}% (Ultra Crisp)</span>
             </div>
             <input
               type="range"
@@ -183,15 +183,15 @@ export const ExportModal: React.FC<ExportModalProps> = ({
               step="0.02"
               value={quality}
               onChange={(e) => setQuality(Number(e.target.value))}
-              className="w-full h-1.5 bg-zinc-200 dark:bg-zinc-700 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+              className="w-full h-1.5 bg-[#0F1117] rounded-lg appearance-none cursor-pointer accent-cyan-400"
             />
           </div>
         )}
 
         {/* Download Success Notice */}
         {downloadSuccess && (
-          <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-700 flex items-center gap-2.5 text-emerald-800 dark:text-emerald-300 text-xs font-semibold animate-in fade-in">
-            <ShieldCheck className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+          <div className="p-3 rounded-lg bg-cyan-950/40 border border-cyan-500/40 flex items-center gap-2.5 text-cyan-300 text-xs font-semibold animate-in fade-in">
+            <ShieldCheck className="w-4 h-4 text-cyan-400 shrink-0" />
             <span>Wallpaper exported and downloaded successfully!</span>
           </div>
         )}
@@ -201,9 +201,9 @@ export const ExportModal: React.FC<ExportModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="px-4 py-2.5 rounded-xl border border-zinc-300 dark:border-zinc-700 text-xs font-semibold text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+            className="px-4 py-2.5 rounded-lg border border-white/10 text-xs font-bold text-gray-300 hover:bg-[#1A1D23] transition-colors"
           >
-            Close
+            Cancel
           </button>
 
           <button
@@ -211,17 +211,17 @@ export const ExportModal: React.FC<ExportModalProps> = ({
             type="button"
             onClick={handleExport}
             disabled={isExporting}
-            className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs sm:text-sm font-bold shadow-lg shadow-indigo-500/25 active:scale-95 transition-all disabled:opacity-50"
+            className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-white hover:bg-gray-200 text-black text-xs font-black tracking-wide shadow-lg active:scale-95 transition-all disabled:opacity-50"
           >
             {isExporting ? (
               <>
-                <Sparkles className="w-4 h-4 animate-spin" />
-                <span>Generating {targetDim.width}×{targetDim.height} JPG...</span>
+                <Sparkles className="w-4 h-4 text-cyan-500 animate-spin" />
+                <span>Exporting {targetDim.width}×{targetDim.height} JPG...</span>
               </>
             ) : (
               <>
-                <Download className="w-4 h-4" />
-                <span>Export & Download {format.toUpperCase()}</span>
+                <Download className="w-4 h-4 stroke-[2.5]" />
+                <span>EXPORT & DOWNLOAD {format.toUpperCase()}</span>
               </>
             )}
           </button>
