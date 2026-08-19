@@ -154,19 +154,22 @@ CS Executive student • Developer • Learner
 I am using GitHub as my **digital playground** — a place where I can learn, experiment, build random ideas, and slowly turn those experiments into useful projects.
 
 <p align="center">
-
-<a href="https://github.com/worsmon-org">
-  <img src="https://img.shields.io/badge/GitHub-worsmon--org-181717?style=for-the-badge&logo=github" alt="GitHub">
+ <a href="https://worsmon-org.github.io/ehsaan-website/" target="_blank">
+  <img src="/ehsaan.png" width="100" alt="Ehsaan Ullah">
 </a>
 
-<a href="https://ehsaan.odoo.com/">
-  <img src="https://img.shields.io/badge/Website-ehsaan.odoo.com-7F52FF?style=for-the-badge" alt="Website">
-</a>
+<p align="center">
+  <a href="mailto:worsmon@gmail.com">
+    <img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email">
+  </a>
 
-</p>
+  <a href="https://github.com/worsmon-org">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
+  </a>
 
+  <a href="https://ehsaan.odoo.com/">
 ---
 
 <p align="center">
-  <sub>Built with curiosity, experimentation & a lot of Ctrl + Z.</sub>
-</p>
+  <sub>Built with curiosity, experimentation & a lot
+
