@@ -1,0 +1,6 @@
+{
+  "name": "EHSAAN ULLAH the wallpaper generator",
+  "description": "Professional wallpaper generator with mobile & desktop modes, custom color palettes, extensive styles (Abstract, Landscape, Minimalist, Halloween, Cyberpunk, Natural, Sci-Fi, and more), dark/light theme options, and crisp JPG export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
